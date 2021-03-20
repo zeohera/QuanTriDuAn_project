@@ -14,12 +14,12 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="page-title-content">
-                    <h2>About Us</h2>
+                    <h2>Thông tin về chúng tôi</h2>
                     <ul>
                         <li>
                             <a href="/">Home</a>
                         </li>
-                        <li>About Us</li>
+                        <li>Thông tin về chúng tôi</li>
                     </ul>
                 </div>
             </div>
@@ -29,7 +29,7 @@
 <!-- End Page Banner -->
 <!-- Start About Area -->
 <section class="about-area ptb-100">
-    <div class="container">
+    @*<div class="container">
         @foreach (var item in OurchefT)
         {
             <div class="row align-items-center">
@@ -53,15 +53,15 @@
                 </div>
             </div>
         }
-    </div>
+    </div>*@
 </section>
 <!-- End About Area -->
 <!-- Start Overview Area -->
 <section class="overview-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <h2>What We Offer</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>Chúng tôi phục vụ những gì </h2>
+            <p>Chúng tôi phục vụ pizza và các đồ ăn nhanh khách phục vụ cả ngày , ngoài pizza chúng tôi còn mang đến những món sau</p>
         </div>
 
         <div class="row">
@@ -70,8 +70,8 @@
                     <img src="/Content/assets/img/overview/overview1.png" alt="image">
 
                     <div class="content">
-                        <h3>Breakfast</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum.</p>
+                        <h3>Bữa sáng</h3>
+                        <p>Mang đến cho bạn một bữa sáng tốt lành đầy đủ năng lượng để bắt đầu ngày mới</p>
                     </div>
                 </div>
             </div>
@@ -81,8 +81,8 @@
                     <img src="/Content/assets/img/overview/overview2.png" alt="image">
 
                     <div class="content">
-                        <h3>Lunch</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum.</p>
+                        <h3>Trưa</h3>
+                        <p>Tiếp thêm năng lượng để có một buổi chiều làm việc chọn vẹn</p>
                     </div>
                 </div>
             </div>
@@ -92,8 +92,8 @@
                     <img src="/Content/assets/img/overview/overview3.png" alt="image">
 
                     <div class="content">
-                        <h3>Dinner</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum.</p>
+                        <h3>Bữa tối</h3>
+                        <p>thỏa mãn cơn đói sau một ngày làm việc</p>
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@
 </section>
 <!-- End Overview Area -->
 <!-- Start Team Area -->
-<section class="team-area bg-ffffff pt-100 pb-70">
+<sectio@*n class="team-area bg-ffffff pt-100 pb-70">
     <div class="container">
         <div class="section-title">
             <h2>Our Chefs</h2>
@@ -153,10 +153,10 @@
 
         </div>
     </div>
-</section>
+</section>*@
 <!-- End Team Area -->
 <!-- Start Testimonial Area -->
-<section class="testimonial-area ptb-100">
+@*<section class="testimonial-area ptb-100">
     <div class="container">
         <div class="section-title">
             <h2>Testimonials</h2>
@@ -186,27 +186,15 @@
 
         </div>
     </div>
-</section>
+</section>*@
 <!-- End Testimonial Area -->
 <!-- Start Choose Area -->
 <section class="choose-area pt-100">
     <div class="container">
         <div class="section-title">
-            <h2>Why People Choose Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>Tại sao mọi người chọn chúng tôi</h2>
+            <p>Với mục tiêu là thỏa mãn cơn đói của các bạn một cách nhanh nhất cùng với đó là trải nghiệm với menu tuyệt vời , chúng tôi muốn bạn được hạnh phúc</p>
         </div>
-        @foreach (var item in About)
-        {
-            <div class="choose-slider owl-carousel owl-theme">
-                <div class="choose-item">
-                    <div class="icon">
-                        <i class="las la-tag"></i>
-                    </div>
-                    <h3>@item.Name</h3>
-                    <p>@item.DesCription</p>
-                </div>
-            </div>
-        }
     </div>
 </section>
 <!-- End Choose Area -->
@@ -214,15 +202,13 @@
 <section class="dishes-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <h2>Popular Dishes</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>Những món chủ chốt</h2>
+            <p>đây là những món ăn chủ chốt của cửa hàng</p>
         </div>
 
         <div class="row">
             @foreach (var item in listfooter)
             {
-
-
                 <div class="col-lg-4 col-md-6">
                     <div class="dishes-item">
                         <div class="image">
