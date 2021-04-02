@@ -8,11 +8,12 @@ namespace webMVC1.EF
     public partial class database : DbContext
     {
         public database()
-            : base("name=database")
+            : base("name=database1")
         {
         }
 
         public virtual DbSet<About> About { get; set; }
+        public virtual DbSet<Blog> Blog { get; set; }
         public virtual DbSet<CategoryDetail> CategoryDetail { get; set; }
         public virtual DbSet<Categorys> Categorys { get; set; }
         public virtual DbSet<Contact> Contact { get; set; }
@@ -36,6 +37,14 @@ namespace webMVC1.EF
         {
             modelBuilder.Entity<About>()
                 .Property(e => e.Detail)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Blog>()
+                .Property(e => e.bl_desc1)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Blog>()
+                .Property(e => e.bl_desc2)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Categorys>()
@@ -76,9 +85,17 @@ namespace webMVC1.EF
                 .Property(e => e.Price)
                 .HasPrecision(18, 0);
 
+            modelBuilder.Entity<OderDetail>()
+                .Property(e => e.Price_total)
+                .HasPrecision(18, 0);
+
             modelBuilder.Entity<Order>()
                 .Property(e => e.ShipMoblie)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Order>()
+                .Property(e => e.Total)
+                .HasPrecision(18, 0);
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.Price)

@@ -5,11 +5,12 @@
 
 @foreach (var item in Model)
 {
-    <li class="nav-item">
-        <a href="@item.Link" class="nav-link active" target="@item.Target">
-            @item.Text
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a href="@item.Link" class="nav-link active" target="@item.Target">
+                @item.Text
+            </a>
 
-        </a>
-
-    </li>
-}
+        </li>
+    </ul>
+        }

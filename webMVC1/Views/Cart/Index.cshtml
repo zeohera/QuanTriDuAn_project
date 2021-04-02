@@ -38,14 +38,14 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th scope="col">product id</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Image</th>
-                                        <th scope="col"> Price</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Size</th>
-                                        <th scope="col">Unit Price</th>
-                                        <th scope="col">function</th>
+                                        <th scope="col">Mã sản phẩm</th>
+                                        <th scope="col">Tên sản phẩm</th>
+                                        <th scope="col">Hình ảnh</th>
+                                        <th scope="col">Đơn giá</th>
+                                        <th scope="col">Số lượng</th>
+                                        <th scope="col">Kích cỡ</th>
+                                        <th scope="col">Tổng giá</th>
+                                        <th scope="col">Chức năng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -70,7 +70,7 @@
                                             <td>
                                                 <a href="#" data-id="@item.Pro.ID" class="btn-danger" onclick="return confirm('Are you sure?')">Delete<ion-icon name="trash-outline"></ion-icon></a>
 
-                                            </td>
+                                            </td> 
                                         </tr>
                                     }
                                 </tbody>
@@ -78,35 +78,35 @@
                             <div class="cart-buttons">
                                 <div class="row align-items-center">
                                     <div class="col-lg-4 col-sm-4 col-md-4 text-left">
-                                        <button class="default-btn" type="button" id="btnCon">Continue Of Menu </button>
+                                        <button class="default-btn" type="button" id="btnCon">Tiếp tục mua thêm </button>
                                     </div>
                                     <div class="col-lg-4 col-sm-4 col-md-4 text-center">
-                                        <button class="default-btn" type="button" id="btnDeleteAll">Delete All </button>
+                                        <button class="default-btn" type="button" id="btnDeleteAll">Xoá tât cả </button>
                                     </div>
                                     <div class="col-lg-4 col-sm-4 col-md-4 text-right">
-                                        <button class="default-btn" type="button" id="btnUpdate">Update Cart</button>
+                                        <button class="default-btn" type="button" id="btnUpdate">Cập nhập giỏ hàng</button>
                                     </div>
                                 </div>
                             </div>
                             <!-- phieu thu -->
                             <div class="cart-totals">
-                                <h3>Cart Totals</h3>
+                                <h3>Hóa đơn</h3>
                                 <ul>
                                     <li>
-                                        Total
-                                        <span><b>$@(Model.Sum(x=>x.Pro.Price*x.Quantity))</b></span>
+                                        Tổng tiền:
+                                        <span><b>@(Model.Sum(x=>x.Pro.Price*x.Quantity))</b></span>
                                     </li>
                                 </ul>
-                                <button class="default-btn" type="button" id="btnCheckout">Procced to CheckOut </button>
+                                <button class="default-btn" type="button" id="btnCheckout">Thanh toán </button>
                             </div>
                         }
                         else
                         {
                             <div class="container">
-                                <span class="input-group-text" id="basic-addon1">No products have bbeen added yet</span>
+                                <span class="input-group-text" id="basic-addon1">Không có sản phẩm  nào trong giỏ hàng</span>
                             </div>
                             <div class="col-lg-4 col-sm-4 col-md-4 text-left">
-                                <button class="default-btn" type="button" id="btnCon">Continue Of Menu </button>
+                                <a href="/menu" class="default-btn">Mua ngay</a>
                             </div>
                         }
                     </div>

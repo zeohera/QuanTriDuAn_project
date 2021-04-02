@@ -6,14 +6,10 @@
 }
 
 
-<div class="row">
+<div class="container">
     <div class="col-lg-12">
         <div class="panel panel-default">
-            <div class="panel-header">
-                List Product
-
-            </div>
-            <div class="panel-body">
+            <div class="">
                 @using (Html.BeginForm("Index", "Product", FormMethod.Get))
                 {
                     <div class="row form-group">
@@ -22,7 +18,7 @@
                                 <input type="text" name="searchString" value="@ViewBag.SearchString" class="form-control" />
                             </div>
                             <div class="col-md-4">
-                                <button type="submit" class="btn btn-success">Search</button>
+                                <button type="submit" class="btn btn-success">Tìm tên sản phẩm</button>
 
                             </div>
 
@@ -31,7 +27,7 @@
 
                     </div>
                     <div class="container">
-                        <a href="/Admin/Product/create" class="btn btn-danger">Add Product</a>
+                        <a href="/Admin/Product/create" class="btn btn-danger">Thêm sản phẩm</a>
                     </div>
 
                 }
@@ -41,16 +37,13 @@
                         <thead>
                             <tr>
 
-                                <th>Name</th>
-                                <th>DesCrtiption</th>
-                                <th>Images</th>
-                                <th>Price</th>
-                                <th>Category</th>
-                                <th>CreteDate</th>
-                                <th>PromotionPrice</th>
-                                <th>MetaTitle</th>
-                                <th>Status</th>
-                                <th>Optional</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Hình ảnh</th>
+                                <th>Giá tiền</th>
+                                <th>Danh mục sản phẩm</th>
+                                <th>Ngày cập nhập</th>
+                                <th>Trạng thái</th>
+                                <th>Chức năng</th>
 
                             </tr>
                         </thead>
@@ -60,25 +53,21 @@
                                 <tr id="row_@item.ID">
 
 
-                                    <td width="10%">@item.Name</td>
-                                    <td width="30%">@item.DesCription</td>
-                                    <td width="20%"><img width="100" src="/Content/Image/@item.Images" alt="Alternate Text" /></td>
-                                    <td width="5%">@item.Price</td>
-                                    <td width="5%">@item.CategoryID</td>
-                                    <td width="5%">@item.CreateDate</td>
-                                    <td width="5%">@item.PromotionPrice</td>
-                                    <td width="15%">@item.MetaTitle</td>
-                                    <td width="5%">@item.Status</td>
-                                    <td width="5%">
-                                        <a class="btn btn-warning" href="/Admin/Product/Edit/@item.ID">Edit</a>
+                                    <td >@item.Name</td>
+                                    <td><img width="100" src="/Content/Image/@item.Images" alt="Alternate Text" /></td>
+                                    <td>@item.Price</td>
+                                    <td>@item.CategoryID</td>
+                                    <td >@item.CreateDate</td>
+                                    <td >@item.Status</td>
+                                    <td >
+                                        <a class="btn btn-warning" href="/Admin/Product/Edit/@item.ID">Sửa hoặc xem chi tiết</a>
                                         |
-                                        @Ajax.ActionLink("Delete", "Delete", new { @id = item.ID }, new AjaxOptions
+                                        @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
                                    {
-                                       Confirm = "Are You Sure ?",
+                                       Confirm = "Bạn chắc chắn xóa không ?",
                                        OnComplete = "$('#row_" + @item.ID + "').remove()",
                                        HttpMethod = "Delete"
                                    })
-
                                     </td>
 
                                 </tr>

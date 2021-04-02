@@ -12,8 +12,16 @@ namespace webMVC1.Controllers
         // GET: Blog
         public ActionResult Index()
         {
-            ViewBag.footer = new ProductDao().ListFooter(6);
+            ViewBag.blog = new BlogDao().ListBlog(6);
             return View();
+        }
+        public ActionResult Blog_detail(long id)
+        {
+            var model = new BlogDao().GetByID(id);
+            ViewBag.OurChef = new OurChefDao().ListOurChef(4);
+            ViewBag.pro = new ProductDao().ListFooterT(4);
+            ViewBag.cat = new ProductDao().ListCategory();
+            return View(model);
         }
     }
 }

@@ -48,7 +48,7 @@ namespace webMVC1.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Them product thanh cong");
+                    ModelState.AddModelError("", "Thêm sản phẩm thành công");
                 }
             }
             SetViewbag();
@@ -70,7 +70,7 @@ namespace webMVC1.Areas.Admin.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Cap nhap thanh cong");
+                        ModelState.AddModelError("", "Cập nhập thành công");
                     }
                 }
             }
@@ -80,7 +80,7 @@ namespace webMVC1.Areas.Admin.Controllers
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            new UserDao().Delete(id);
+            new ProductDao().Delete(id);
             return RedirectToAction("Index");
         }
         public void SetViewbag(long? selectedId=null)

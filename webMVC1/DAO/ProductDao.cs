@@ -45,7 +45,7 @@ namespace webMVC1.DAO
                 product.Tophot = entity.Tophot;
                 product.Price = entity.Price;
                 product.CreateDate = DateTime.Now;
-                product.Quantity = entity.Quantity;
+                product.Quantity = 0;
                 product.CategoryID = entity.CategoryID;
                 product.PromotionPrice = entity.PromotionPrice;
                 db.SaveChanges();
@@ -59,7 +59,7 @@ namespace webMVC1.DAO
         }
         public IEnumerable<Product> ListAllPaging(string searchString, int page, int pageSize)
         {
-            IQueryable<Product> model = db.Product;
+            IQueryable<Product> model =  db.Product;
             if (!string.IsNullOrEmpty(searchString))
             {
                 model = model.Where(x => x.Name.Contains(searchString) || x.Name.Contains(searchString));
@@ -73,7 +73,7 @@ namespace webMVC1.DAO
         }
         public List<Product> ListPopularMenu(int top)
         {
-            return db.Product.Where(x => x.Code!=null && x.Status==true).OrderByDescending(x => x.CreateDate).Take(top).ToList();
+            return db.Product.OrderByDescending(x => x.Price).Take(top).ToList();
         }
         public List<Product> ListFooter(int top)
         {
@@ -81,7 +81,7 @@ namespace webMVC1.DAO
         }
         public List<Product> ListFooterT(int top)
         {
-            return db.Product.OrderByDescending(x => x.Warranty).Take(top).ToList();
+            return db.Product.OrderByDescending(x => x.CreateDate).Take(top).ToList();
         }
         public bool Delete(int id)
         {
@@ -109,15 +109,20 @@ namespace webMVC1.DAO
             var model= db.Product.Where(x => x.CategoryID == categoryID).OrderByDescending(x=>x.CreateDate).Skip((pageSize-1)*pageIndex).Take(pageSize).ToList();
             return model;
         }
-        public List<Product> ListAllT(int top)
-        {
-            return db.Product.Where(x => x.Code==null && x.Status==true).OrderBy(x => x.Price).ToList();
+        public IEnumerable<Product> ListAllT(string searchString, int page, int pageSize)
+        { 
+            IQueryable<Product> model = db.Product;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.Name.Contains(searchString) || x.Name.Contains(searchString));
+            }
+            return model.OrderByDescending(x => x.CreateDate).ToPagedList(page, pageSize);
         }
         public List<Product> ListAll()
         {
             return db.Product.Where(x => x.Status == true).OrderBy(x => x.Price).ToList();
         }
-        public List<Categorys> ListCategory(int top)
+        public List<Categorys> ListCategory()
         {
             return db.Categorys.Where(x => x.Status == true).OrderByDescending(x => x.ID).ToList();
         }

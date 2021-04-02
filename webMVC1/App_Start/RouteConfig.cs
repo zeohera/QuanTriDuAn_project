@@ -163,13 +163,37 @@ namespace webMVC1
                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                namespaces: new[] { "webMVC1.Areas.Admin.Controllers" }
            );
-
+            routes.MapRoute(
+             name: "Order_detail",
+             url: "Order/Order_detail/{id}",
+             defaults: new { controller = "Order", action = "order_detail", id = UrlParameter.Optional },
+             namespaces: new[] { "webMVC1.Areas.Admin.Controllers" }
+         );
+             routes.MapRoute(
+             name: "Blog_detail",
+             url: "blog/blog_detail/{id}",
+             defaults: new { controller = "Blog", action = "Blog_detail", id = UrlParameter.Optional },
+             namespaces: new[] { "webMVC1.Controllers" }
+         );
+             routes.MapRoute(
+             name: "loi_thanh_toan",
+             url: "loi-thanh-toan",
+             defaults: new { controller = "Cart", action = "error", id = UrlParameter.Optional },
+             namespaces: new[] { "webMVC1.Controllers" }
+         );
+            routes.MapRoute(
+            name: "check_order",
+            url: "check_order",
+            defaults: new { controller = "Cart", action = "Check_order", id = UrlParameter.Optional },
+            namespaces: new[] { "webMVC1.Controllers" }
+        );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "defalts", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "webMVC1.Controllers" }
             );
+
         }
     }
 }

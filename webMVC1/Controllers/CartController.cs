@@ -27,6 +27,10 @@ namespace webMVC1.Controllers
             }
             return View(list);
         }
+        public ActionResult error()
+        {
+            return View();
+        }
         [HttpGet]
         public ActionResult checkout()
         {
@@ -40,7 +44,7 @@ namespace webMVC1.Controllers
             return View(list);
         }
         [HttpPost]
-        public ActionResult checkout(string shipName,string shipEmail,string shipMobile,string shipAddress)
+        public ActionResult checkout(string shipName,string shipEmail,string shipMobile,string shipAddress, int pri_total)
         {
             var order = new Order();
             order.CreateDate = DateTime.Now;
@@ -48,29 +52,42 @@ namespace webMVC1.Controllers
             order.ShipEmail = shipEmail;
             order.ShipName = shipName;
             order.ShipMoblie = shipMobile;
-            try
-            {
-                var id = new OderDao().Insert(order);
-                var cart = (List<CartItem>)Session[CartSession];
-                var detailDao = new OderDetailDao();
-                decimal total = 0;
-                foreach (var item in cart)
-                {
-                    var orderDetail = new OderDetail();
-                    orderDetail.ProductID = item.Pro.ID;
-                    orderDetail.OrderID = id;
-                    orderDetail.Price = item.Pro.Price;
-                    orderDetail.Quantity = item.Quantity;
-                    detailDao.Insert(orderDetail);
-                    total += (item.Pro.Price.GetValueOrDefault(0) * item.Quantity);
-                }
-               
-            }
-            catch(Exception )
+            order.Total = pri_total;
+            order.Status = 1;
+            if (order.ShipMoblie=="" || order.ShipName=="" || order.ShipAddress=="")
             {
                 return Redirect("/loi-thanh-toan");
             }
-            return Redirect("/hoan-thanh");
+            else
+            {
+                try
+                {
+                    var id = new OderDao().Insert(order);
+                    var cart = (List<CartItem>)Session[CartSession];
+                    var detailDao = new OderDetailDao();
+                    decimal total = 0;
+                    foreach (var item in cart)
+                    {
+                        var orderDetail = new OderDetail();
+                        orderDetail.ProductID = item.Pro.ID;
+                        orderDetail.OrderID = id;
+                        orderDetail.Price = item.Pro.Price;
+                        orderDetail.Quantity = item.Quantity;
+                        orderDetail.Name = item.Pro.Name;
+                        orderDetail.Image = item.Pro.Images;
+                        orderDetail.Price_total = (item.Pro.Price.GetValueOrDefault(0) * item.Quantity);
+                        total += (item.Pro.Price.GetValueOrDefault(0) * item.Quantity);
+                        detailDao.Insert(orderDetail);
+                    }
+
+                }
+                catch (Exception)
+                {
+                    return Redirect("/loi-thanh-toan");
+                }
+                Session.Clear();
+                return Redirect("/hoan-thanh");
+            }
         }
         public ActionResult checkoutTempleate(string shipName, string shipEmail, string shipMobile, string shipAddress)
         {
@@ -127,7 +144,7 @@ namespace webMVC1.Controllers
             {
                 var jsonItem = jsonCart.SingleOrDefault(x => x.Pro.ID == item.Pro.ID);
                 if (jsonItem != null)
-                {
+                { 
                     item.Quantity = jsonItem.Quantity;
                 }
             }
@@ -193,6 +210,28 @@ namespace webMVC1.Controllers
             {
                 status = true
             });
+        }
+        [HttpGet]
+        public ActionResult Check_order()
+        {
+            var order = new Order();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Check_order(string phone)
+        {
+            string message = string.Empty;
+            var order = new Order();
+            if (order.ShipMoblie == phone)
+            {
+                return Redirect("/thong-tin"); 
+            }
+            else
+            {
+                message = "số điện thoại không tồn tại trên hệ thống";
+                return Redirect("/check_order");
+        
+            }
         }
 
 

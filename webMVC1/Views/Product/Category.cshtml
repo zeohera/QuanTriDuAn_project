@@ -13,9 +13,9 @@
                     <h2>Menu</h2>
                     <ul>
                         <li>
-                            <a href="/">Home</a>
+                            <a href="/">Trang chủ</a>
                         </li>
-                        <li>Menu</li>
+                        <li>@category.Name</li>
                     </ul>
                 </div>
             </div>
@@ -27,10 +27,6 @@
     <div class="container-fluid p-0">
         <section class="dishes-area pt-100 pb-70">
             <div class="container-fluid p-0">
-                <div class="section-title">
-                    <h2>Popular Dishes</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
                 <hr />
 
                 <nav style="background-color:#dcabb2" class="navbar navbar-expand-md navbar-light">
@@ -40,7 +36,7 @@
                                 <ul class="breadcrumb">
                                     @foreach (var item in cate)
                                     {
-                                        <li class="btn btn-light"> <a class="nav-link active" style="color:burlywood" href="@item.MetaKeywords-@item.ID">@item.Name</a></li>
+                                        <li class="btn btn-light"> <a class="nav-link active" style="color:black" href="@item.MetaKeywords-@item.ID">@item.Name</a></li>
                                     }
                                 </ul>
                             </nav>
@@ -56,7 +52,7 @@
                             <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <h3>Product Portfolio: @category.Name</h3>
+                                        <h3>Danh mục của sản phẩm: @category.Name</h3>
                                     </li>
                                 </ul>
                             </div>
@@ -84,7 +80,9 @@
                                     <hr style="background-color:antiquewhite" />
                                     <span>@item.DesCription</span>
                                     <div class="dishes-btn">
-                                        <a href="/them-gio-hang?productID=@item.ID&quantity=1" class="default-btn">Add To Cart</a>
+                                        <a href="/them-gio-hang?productID=@item.ID&quantity=1" class="default-btn">Thêm vào giỏ hàng</a>
+                                        |
+                                        <a href="chi-tiet/@item.ID" class="btn btn-primary">Xem chi tiết</a>
                                     </div>
                                 </div>
                             </div>

@@ -22,5 +22,13 @@ namespace webMVC1.EF
         public int? Quantity { get; set; }
 
         public decimal? Price { get; set; }
+
+        [StringLength(50)]
+        public string Name { get; set; }
+
+        [StringLength(50)]
+        public string Image { get; set; }
+
+        public decimal? Price_total { get; set; }
     }
 }

@@ -74,7 +74,7 @@ namespace webMVC1.Areas.Admin.Controllers
             return View();
         }
         [HttpDelete]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(long id)
         {
             new CategoryDao().Delete(id);
             return RedirectToAction("Index");

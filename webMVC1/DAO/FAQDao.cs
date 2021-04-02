@@ -25,7 +25,7 @@ namespace webMVC1.DAO
         }
         public List<questionandanswer> GetActiveContact()
         {
-            return db.questionandanswer.Where(x => x.status == true).ToList();
+            return db.questionandanswer.Where(x => x.status == true && x.Answer!=null).OrderByDescending(x=>x.CreateDate).ToList();
         }
         public bool ChangeStatus(long id)
         {

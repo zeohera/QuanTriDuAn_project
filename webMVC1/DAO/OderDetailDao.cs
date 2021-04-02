@@ -26,8 +26,7 @@ namespace webMVC1.DAO
             {
                 return false;
             }
-
-        }
+        } 
         public IEnumerable<OderDetail> ListAllPaging( int page, int pageSize)
         {
             IQueryable<OderDetail> model = db.OderDetail;
@@ -36,6 +35,11 @@ namespace webMVC1.DAO
         public List<OderDetail> ListOrderDetail(int top)
         {
             return db.OderDetail.OrderByDescending(x => x.OrderID).Take(top).ToList();
+        }
+        public List<OderDetail> viewOrderDetails(long id)
+        {
+            var model = db.OderDetail.Where(x=>x.OrderID==id).OrderByDescending(x => x.ProductID).ToList();
+            return model;
         }
     }
 }

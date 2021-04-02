@@ -7,6 +7,8 @@
     var listfooter = (List<webMVC1.EF.Product>)ViewBag.footer;
     var listfooterT = (List<webMVC1.EF.Product>)ViewBag.footerT;
     var Ourchef = (List<webMVC1.EF.OurChefs>)ViewBag.ourchef;
+    var listSlide = (List<webMVC1.EF.Slidebar>)ViewBag.listSlide;
+    var listBlog = (List<webMVC1.EF.Blog>)ViewBag.listBlog;
 }
 
 
@@ -16,33 +18,31 @@
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-8">
-                            <div class="main-banner-content">
-                                <h1>It’s About Good Food & Fresh Ingredients</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  incididunt labore  dolore magna aliqua.</p>
-                                <div class="banner-btn">
-                                    <a href="menu" class="default-btn">
-                                        View Our Menu
-                                    </a>
-                                    <a href="gio-hang" class="default-btn-two">
-                                        Cart
-                                    </a>
+                    @foreach (var item in listSlide)
+                    {
+                        <div class="row align-items-center">
+                            <div class="col-lg-8">
+                                <div class="main-banner-content">
+                                    <h1>Đây là 1 cửa hàng pizza 100% đảm bảo chất lượng</h1>
+                                    <p>@item.title.</p>
+                                    <div class="banner-btn">
+                                        <a href="menu" class="default-btn">
+                                            Xem thực đơn của chúng tôi
+                                        </a>
+                                        <a href="gio-hang" class="default-btn-two">
+                                            Xem giỏ hàng
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="banner-image">
+                                    <img src="/Content/SlideBar/@item.image" alt="image">
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-4">
-                            <div class="banner-image">
-                                <img src="/Content/User/assets/img/banner-image.png" alt="image">
-
-                                <div class="offer-text">
-                                    <h4>50%</h4>
-                                    <span>Off</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
@@ -55,21 +55,21 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="chef-item">
-                    <h3>Try Out Our New Menu From Chef Master </h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ipsume ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem Ipsum is simply dummy printing and typesetting industry. Lorem Ipsum has been the industry standard dummytext ever since the when an unknown printer took a galley of type.</p>
+                    <h3>Đến với chuỗi cửa hàng pizza của chúng tôi </h3>
+                    <p>Đa dạng hương vị, hình thức đẹp mắt, đầy đủ năng lượng và dinh dưỡng,…đó là những lý do khiến Pizza vô cùng phổ biến và được bình chọn là một trong những món bánh được yêu thích nhất trên thế giới. Cho đến ngày nay người ta vẫn còn tranh cãi về nguồn gốc ra đời của món bánh này. Một số tư liệu cho rằng, bánh Pizza có tiền thân là những chiếc bánh làm bằng bột mì được nướng trên những phiến đá phẳng và nóng xuất hiện lần đầu tiên cũng như trở nên phổ biến tại Napoli – Ý vào khoảng 1000 năm trước. Nhưng một số tài liệu khác lại nói rằng người Roman (La Mã cổ đại) và người Phoenici của xứ Hy Lạp mới là những người đầu tiên đã chế biến thành công Pizza bởi họ vô tình biết được bí mật của công thức nhào bột với nước và nướng bánh trên đá sau đám cháy..</p>
 
                     <ul class="chef-list">
                         <li>
                             <i class="las la-hamburger"></i>
-                            <span>Vegan Burger</span>
+                            <span>Bánh pizza</span>
                         </li>
                         <li>
                             <i class="las la-ice-cream"></i>
-                            <span>Drumstick</span>
+                            <span>Các món tráng miệng </span>
                         </li>
                         <li>
                             <i class="las la-drumstick-bite"></i>
-                            <span>Chicken Shawarma</span>
+                            <span>Đồ uống</span>
                         </li>
                     </ul>
                 </div>
@@ -103,11 +103,11 @@
 
                     <div class="pizza-list">
                         <div class="image">
-                            <img src="/Content/Image/@item.Images" alt="image">
+                            <img width="50px;" height="50px" src="/Content/Image/@item.Images" alt="image">
                         </div>
                         <h4>
                             <a href="/them-gio-hang?productID=@item.ID&quantity=1">@item.Name</a>
-                            <span class="price">$@item.Price</span>
+                            <span class="price">@item.Price</span>
                         </h4>
                         <p>@item.DesCription</p>
                     </div>
@@ -126,8 +126,8 @@
 <section class="menu-area pb-100">
     <div class="container">
         <div class="section-title">
-            <h2>Popular Menu</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>Các Món ăn đang giảm giá</h2>
+            <p>Bạn hãy mua thật nhanh kẻo mọi người mua hết nhé....</p>
         </div>
 
         <div class="row">
@@ -143,7 +143,7 @@
                         </div>
                         <h4>
                             <a href="/them-gio-hang?productID=@item.ID&quantity=1">@item.Name</a>
-                            <span class="price">$@item.Price</span>
+                            <span class="price">@item.Price</span>
                         </h4>
                         <p>@item.DesCription</p>
                     </div>
@@ -161,8 +161,8 @@
 <section class="team-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <h2>Our Chefs</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>Các cá nhân  tiêu biểu của chúng tôi</h2>
+            <p>Dưới đây là một số cá nhân tiêu biểu đóng góp rất lớn làm lên thương hiệu và công ty của chúng tôi.</p>
         </div>
 
         <div class="row">
@@ -214,8 +214,8 @@
 <section class="dishes-area pt-100 pb-70">
     <div class="container-fluid p-0">
         <div class="section-title">
-            <h2>Popular Dishes</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>Các món ăn giảm giá và mới xuất hiện</h2>
+            <p>Tôi khuyên các bạn đừng nên bỏ lỡ các món ăn tiêu biểu và giá lại phải chăng vừa với túi tiên của bạn.</p>
         </div>
 
         <div class="row">
@@ -237,6 +237,8 @@
 
                         <div class="dishes-btn">
                             <a href="/them-gio-hang?productID=@item.ID&quantity=1" class="default-btn">Add To Cart</a>
+                            |
+                            <a href="chi-tiet/@item.ID" class="btn btn-primary">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>
@@ -263,30 +265,25 @@
 <section class="blog-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <h2>Our Latest News</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>Các bài viết mới trong tuần qua</h2>
         </div>
 
         <div class="blog-slider owl-carousel owl-theme">
-            @foreach(var item in listfooterT)
+            @foreach(var item in listBlog)
             {
 
-            <div class="blog-item">
+            <div class="blog-item" style=" width:350px; height:100%">
                 <div class="image">
-                    <a href="/them-gio-hang?productID=@item.ID&quantity=1">
-                        <img src="/Content/Image/@item.Images" alt="image">
-                    </a>
+                        <img src="/Content/Blog/@item.bl_image" alt="image">
                     <div class="date">
-                        <span>@item.CreateDate</span>
+                        <span>@item.bl_create</span>
                     </div>
                 </div>
                 <div class="content">
                     <h3>
-                        <a href="/them-gio-hang?productID=@item.ID&quantity=1">
-                            @item.MetaDescriptions
-                        </a>
+                            @item.bl_title
                     </h3>
-                    <a href="chi-tiet/@item.ID" class="blog-btn">Remore++</a>
+                    <a href="/blog/blog_detail/@item.bl_id" class="blog-btn">Đọc ngay</a>
                 </div>
             </div>
             }

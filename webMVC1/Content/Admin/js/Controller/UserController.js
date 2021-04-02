@@ -18,10 +18,10 @@
                 success: function (response) {
                     console.log(response);
                     if (response.status == true) {
-                        btn.text('kich hoat');
+                        btn.text('kích hoạt');
                     }
                     else {
-                        btn.text('khoa');
+                        btn.text('khóa');
                     }
                 }
             });

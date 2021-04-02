@@ -32,5 +32,9 @@ namespace webMVC1.DAO
         {
             return db.Order.OrderByDescending(x => x.CreateDate).Take(top).ToList();
         }
+        public List<Order> order(long id)
+        {
+            return  db.Order.Where(x=>x.ID==id).ToList();
+        }
     }
 }

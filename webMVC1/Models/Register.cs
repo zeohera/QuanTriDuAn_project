@@ -11,32 +11,32 @@ namespace webMVC1.Models
         [Key]
         public long ID { set; get; }
 
-        [Display(Name="Ten Dang Nhap")] 
-        [Required(ErrorMessage ="yeu cau nhap ten dang nhap")]
+        [Display(Name="Tên đăng nhập")] 
+        [Required(ErrorMessage ="yêu cầu nhập tên đăng nhập")]
         public string UserName { set; get; }
 
-        [Display(Name = "Mat khau")]
-        [StringLength(20,MinimumLength =6,ErrorMessage ="do dai it nhat 6 ky tu")]
-        [Required(ErrorMessage = "yeu cau nhap mat khau")]
+        [Display(Name = "Mật khẩu")]
+        [StringLength(20,MinimumLength =6,ErrorMessage ="độ dài ít nhất 6 ký tự")]
+        [Required(ErrorMessage = "yêu càu nhập mật khẩu")]
         public string PassWord { set; get; }
 
-        [Display(Name = "Nhap lai Mat Khau")]
-        [Compare("PassWord",ErrorMessage="xac nhan khong dung")]
+        [Display(Name = "nhập lại mật khẩu")]
+        [Compare("PassWord",ErrorMessage="xác nhận mật khẩu không đúng")]
         public string ConfirmPassWord { set; get; }
 
-        [Display(Name = "Dia Chi")]
+        [Display(Name = "Địa chỉ")]
         public string Address { set; get; }
 
         [Display(Name = "Email")]
-        [Required(ErrorMessage = "yeu cau nhap email")]
+        [Required(ErrorMessage = "yêu cầu nhập lại email email")]
         public string Email { set; get; }
 
-        [Display(Name = "Dien Thoai")]
-        [Required(ErrorMessage = "yeu cau nhap so dien thoai")]
+        [Display(Name = "Điện thoại")]
+        [Required(ErrorMessage = "yêu cầu nhập lại số điện thoại")]
         public string Phone { set; get; }
 
-        [Display(Name = "Ho ten")]
-        [Required(ErrorMessage = "yeu cau nhap ho ten")]
+        [Display(Name = "Họ tên")]
+        [Required(ErrorMessage = "nhập họ và tên")]
         public string Name { set; get; }
 
 

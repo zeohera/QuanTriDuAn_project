@@ -28,5 +28,7 @@ namespace webMVC1.EF
         public string ShipEmail { get; set; }
 
         public int? Status { get; set; }
+
+        public decimal? Total { get; set; }
     }
 }

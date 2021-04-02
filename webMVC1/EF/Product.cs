@@ -40,7 +40,7 @@ namespace webMVC1.EF
 
         public int? Warranty { get; set; }
 
-        public bool Status { get; set; }
+        public bool? Status { get; set; }
 
         public DateTime? CreateDate { get; set; }
 

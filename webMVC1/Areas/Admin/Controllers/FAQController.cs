@@ -42,7 +42,7 @@ namespace webMVC1.Areas.Admin.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Cap nhap thanh cong");
+                        ModelState.AddModelError("", "Cập nhập thành công");
                     }
                 }
             }

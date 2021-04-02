@@ -5,7 +5,7 @@
 
     regEnvents: function () {
         $('#btnCon').off('click').on('click', function () {
-            window.location.href = "menu";
+            window.location.href = "/menu";
         });
         $('#btnCheckout').off('click').on('click', function () {
             window.location.href = "/thanh-toan";
@@ -45,6 +45,15 @@
                         window.location.href = "/gio-hang";
                     }
                 }
+            })
+        });
+        $('.txtsearch').off('click').on('click', function (e) {
+            e.preventDefault();
+            var phone = $('.txtphone').val();
+            $.ajax({
+                url: '/Cart/Check_order',
+                type: 'POST',
+                data: { phone: phone }
             })
         });
         $('.btn-danger').off('click').on('click', function (e) {

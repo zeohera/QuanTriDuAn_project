@@ -14,14 +14,15 @@ namespace webMVC1.Controllers
         {
             return View();
         }
-        public ActionResult Menu()
+        public ActionResult Menu(string searchString, int page = 1, int pageSize = 10)
         {
             var product = new ProductDao();
-            ViewBag.category = product.ListCategory(12);
-            ViewBag.por = product.ListAllT(4);
-            return View();
+            ViewBag.category = product.ListCategory();
+            var model = product.ListAllT(searchString, page, pageSize);
+            ViewBag.SearchString = searchString;
+            return View(model);
         }
-        public ActionResult Category(long id, int page = 1 ,int pageSize = 8)
+        public ActionResult Category(long id, int page = 1 ,int pageSize = 4)
         {
             var category = new CategoryDao().ViewDetail(id);
             ViewBag.cate = new CategoryDao().ListAll();
@@ -73,7 +74,7 @@ namespace webMVC1.Controllers
             ViewBag.Category = new CategoryDao().ViewDetails(product.CategoryID.Value);
             ViewBag.OurChef = new OurChefDao().ListOurChef(4);
             ViewBag.pro = new ProductDao().ListFooterT(4);
-            ViewBag.cat = new ProductDao().ListCategory(12);
+            ViewBag.cat = new ProductDao().ListCategory();
             return View(product);
         }
     }

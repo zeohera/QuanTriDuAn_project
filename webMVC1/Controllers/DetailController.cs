@@ -15,7 +15,7 @@ namespace webMVC1.Controllers
             return View();
         }
         [ChildActionOnly]
-        public PartialViewResult CategoryDetail()
+        public PartialViewResult CategoryDetail(int id)
         {
             var model = new DetailDao().ListAll();
             return PartialView(model);

@@ -7,7 +7,7 @@ using webMVC1.DAO;
 
 namespace webMVC1.Areas.Admin.Controllers
 {
-    public class OrderDetailController : Controller
+    public class OrderDetailController : BaseController
     {
         // GET: Admin/OrderDetail
         public ActionResult Index(int page = 1, int pageSize = 10)
@@ -16,6 +16,6 @@ namespace webMVC1.Areas.Admin.Controllers
             var model = dao.ListAllPaging(page, pageSize);
             return View(model);
         }
-
+         
     }
 }

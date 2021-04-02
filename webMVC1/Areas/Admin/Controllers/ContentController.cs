@@ -44,7 +44,7 @@ namespace webMVC1.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Them content thanh cong");
+                    ModelState.AddModelError("", "Thêm mô tả thành công");
                 }
             }
             return View("Index");
@@ -67,7 +67,7 @@ namespace webMVC1.Areas.Admin.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Cap nhap thanh cong");
+                        ModelState.AddModelError("", "Cập nhập thành công");
                     }
                 }
             }

@@ -17,6 +17,6 @@ namespace webMVC1.EF
         [StringLength(50)]
         public string title { get; set; }
 
-        public bool? stastus { get; set; }
+        public bool stastus { get; set; }
     }
 }

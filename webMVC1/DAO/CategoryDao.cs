@@ -36,7 +36,7 @@ namespace webMVC1.DAO
                 categorys.MetaTitle = entity.MetaTitle;
                 categorys.MetaDescriptions = entity.MetaDescriptions;
                 categorys.MetaKeywords = entity.MetaKeywords;
-                categorys.MetaTitle = entity.MetaTitle;
+                categorys.MetaTitle = entity.MetaTitle; 
                 categorys.Status = entity.Status;
                 categorys.SeoTitle = entity.SeoTitle;
                 db.SaveChanges();
@@ -54,12 +54,12 @@ namespace webMVC1.DAO
             
             return model.OrderByDescending(x => x.CreateDate);
         }
-        public bool Delete(int id)
+        public bool Delete(long id)
         {
             try
             {
-                var Categorys = db.Categorys.Find(id);
-                db.Categorys.Remove(Categorys);
+                var category = db.Categorys.Find(id);
+                db.Categorys.Remove(category);
                 db.SaveChanges();
                 return true;
             }

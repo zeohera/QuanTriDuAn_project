@@ -59,10 +59,12 @@ namespace webMVC1.Controllers
         {
             var productDao = new ProductDao();
             ViewBag.pizza = productDao.ListPizza(4);
-            ViewBag.popularMenu = productDao.ListPopularMenu(10);
+            ViewBag.popularMenu = productDao.ListPopularMenu(5);
             ViewBag.footer = productDao.ListFooter(8);
             ViewBag.footerT = productDao.ListFooterT(5);
             ViewBag.ourchef = new OurChefDao().ListOurChef(3);
+            ViewBag.listSlide = new SlideBarDao().ListSlide(1);
+            ViewBag.listBlog = new BlogDao().listblogs();
             return View();
         }
         [ChildActionOnly]

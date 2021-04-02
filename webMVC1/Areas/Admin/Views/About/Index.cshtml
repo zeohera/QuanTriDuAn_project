@@ -9,7 +9,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-header">
-                <h1>List About</h1>
+                <h1>Danh mục bài viết</h1>
 
             </div>
             <div class="panel-body">
@@ -21,12 +21,12 @@
                                 <input type="text" name="searchString" value="@ViewBag.SearchString" class="form-control" />
                             </div>
                             <div class="col-md-4">
-                                <button type="submit" class="btn btn-success">Search</button>
+                                <button type="submit" class="btn btn-success">Tìm kiếm</button>
                             </div>
                         </div>
                     </div>
                     <div class="container">
-                        <a href="/Admin/About/Create" class="btn btn-danger">Add About</a>
+                        <a href="/Admin/About/Create" class="btn btn-danger">Thêm bài viết</a>
                     </div>
 
                 }
@@ -36,30 +36,28 @@
                         <thead>
                             <tr>
 
-                                <th>Name</th>
-                                <th>Quantity</th>
-                                <th>DesCription</th>
-                                <th>CrateDate</th>
+                                <th>Tên bài viết</th>
+                                <th>Mô tả</th>
+                                <th>Crate</th>
                                 <th>Detail</th>
-                                <th>Images</th>
-                                <th>Optional</th>
+                                <th>Hình ảnh</th>
+                                <th>Chức năng</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                <tr id="row_@item.ID">
+                                <tr>
                                     <td width="10%">@item.Name</td>
-                                    <td width="5%">@item.Quantity</td>
                                     <td width="30%">@item.DesCription</td>
                                     <td width="5%">@item.CreateDate</td>
                                     <td width="20%">@item.Detail</td>
                                     <td width="20%"><img width="200" src="/Content/About/@item.Images" alt="Alternate Text" /></td>
                                     <td width="10%">
-                                        <a class="btn btn-warning" href="/Admin/About/Edit/@item.ID">Edit</a>
+                                        <a class="btn btn-warning" href="/Admin/About/Edit/@item.ID">Xửa</a>
                                         |
-                                        @Ajax.ActionLink("Delete", "Delete", new { @id = item.ID }, new AjaxOptions
+                                        @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
                                    {
                                        Confirm = "Are You Sure ?",
                                        OnComplete = "$('#row_" + @item.ID + "').remove()",
